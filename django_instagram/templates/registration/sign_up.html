@@ -1,0 +1,50 @@
+{% extends 'base_main.html' %}
+{% load staticfiles %}
+{% block extrastyle %}
+{% static 'css/sign_up_login.css' %}
+{% endblock %}
+{% block content %}
+<div id="sign_up_form">
+    <form action="." method="post">{% csrf_token %}
+    <table>
+        <tr>
+            <td><h2></h2></td>
+        </tr>
+        <tr>
+            <td><a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a></td>
+        </tr>
+        <tr>
+            <td>
+                <hr>
+            </td>
+        </tr>
+
+        <tr>
+            <td><label for="id_email"><input type="email" id="id_email" name="email" required placeholder="email"></label><br></td>
+        </tr>
+        <tr>
+            <td><label for="id_last_name"><input type="text" id="id_last_name" name="last_name" required placeholder="name"></label><br></td>
+        </tr>
+        <tr>
+            <td><label for="id_username"><input type="text" id="id_username" name="username" required placeholder="username"></label><br></td>
+        </tr>
+        <tr>
+            <td><label for="id_password1"><input type="password" id="id_password1" minlength="8" name="password1" required placeholder="password1"></label><br></td>
+        </tr>
+        <tr>
+            <td><label for="id_password2"><input type="password" id="id_password2" minlength="8" name="password2" required placeholder="password2"></label><br></td>
+        </tr>
+        <tr>
+            <td><button type="submit" value="가입" id="input_submit">가입</button></td>
+        </tr>
+        </form>
+    </table>
+        {% if form.errors %}
+            {{ form.errors }}
+        {% endif %}
+</form>
+    </div>
+<div class="sign_up_form_2">
+   <p>계정이 있으신가요?<a href="{% url 'auth:login' %}">로그인</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+*{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+#wrap{
+    width:100%;
+    height:auto;
+}
+a{
+    text-decoration:none;
+}
+body{
+    background-color:#fefefe;
+}
